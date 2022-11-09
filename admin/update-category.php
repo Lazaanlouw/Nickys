@@ -124,7 +124,8 @@
             
                         //Auto Rename the image so it does not replace the current image in db if there is duplicates
                         //Get extension of image
-                        $ext = end(explode('.', $image_name)); //explode breaks the name into sections
+                        $image_info = explode (".", $image_name);
+                        $ext = end ($image_info); //explode breaks the name into sections
             
                         //rename the image
                         $image_name = "Food_Category_".rand(000, 999).'.'.$ext;

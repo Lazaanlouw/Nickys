@@ -1,51 +1,85 @@
 <?php include('partials/menu.php'); ?>
 
-    <div class="main-content">
-        <div class="wrapper">
-            <h1>Manage Food</h1>
+<div class="main-content">
+    <div class="wrapper">
+        <h1>Manage Food</h1>
 
-            <br /><br />
-                <a href="#" class="btn-primary">Add Food</a>
-                <br /><br /><br />
-                <table class="tbl-full">
-                    <tr>
-                        <th>S.N</th>
-                        <th>Full Name</th>
-                        <th>Username</th>
-                        <th>Actions</th>
-                    </tr>
+        <br /><br />
+        <a href="<?php echo SITEURL ;?>admin/add-food.php" class="btn-primary">Add Food</a>
+        <br /><br /><br />
 
-                    <tr>
-                        <td>1.</td>
-                        <td>Lezaan Louw</td>
-                        <td>ZaanieBoy16</td>
-                        <td>
-                           <a href="#" class="btn-secondary">Update Admin</a>
-                           <a href="#" class="btn-danger">Delete Admin</a> 
-                        </td>
-                    </tr>
+        <?php
+                    if(isset($_SESSION['add'])){
+                        echo $_SESSION['add'];
+                        unset($_SESSION['add']);
+                    }
+                
+                ?>
+        <table class="tbl-full">
+            <tr>
+                <th>S.N</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Feature</th>
+                <th>Active</th>
+                <th>Actions</th>
+            </tr>
+            <?php
+                        //Sql query to get all data for food
+                        $sql = "SELECT * FROM tbl_food";
+                        $res = mysqli_query($conn, $sql);
+                        $count = mysqli_num_rows($res);
+                        $sn=1;
+                        if($count>0){
+                            //There is data
+                            //get the foods from db
+                            while ($row=mysqli_fetch_assoc($res)) {
+                                $id= $row['id'];
+                                $title= $row['title'];
+                                $price= $row['price'];
+                                $image_name= $row['image_name'];
+                                $feature= $row['feature'];
+                                $active= $row['active'];
+                                ?>
 
-                    <tr>
-                        <td>2.</td>
-                        <td>Nicky Louw</td>
-                        <td>EuphoricGoose32</td>
-                        <td>
-                           <a href="#" class="btn-secondary">Update Admin</a>
-                           <a href="#" class="btn-danger">Delete Admin</a> 
-                        </td>
-                    </tr>
+            <tr>
+                <td><?php echo $sn++;?></td>
+                <td><?php echo $title; ?></td>
+                <td>R<?php echo $price; ?></td>
+                <td>
+                    <?php
+                                            if($image_name!=""){
+                                                //Display the image
+                                                ?>
+                    <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" width="100px">
 
-                    <tr>
-                        <td>3.</td>
-                        <td>Keenan Louw</td>
-                        <td>Keeny</td>
-                        <td>
-                           <a href="#" class="btn-secondary">Update Admin</a>
-                           <a href="#" class="btn-danger">Delete Admin</a> 
-                        </td>
-                    </tr>
-                </table>
-        </div>
+                    <?php
+                                            }else{
+                                                //display the error message
+                                                echo "<div class='error'>No image available</div>";
+                                            }
+                                        ?>
+                </td>
+                <td><?php echo $feature; ?></td>
+                <td><?php echo $active; ?></td>
+                <td>
+                    <a href="#" class="btn-secondary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <a href="#" class="btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                </td>
+            </tr>
+
+
+            <?php
+                            }
+                        }else{
+                            //There is no food
+                            echo "<tr> <td colspan='7' class='error'> Food not added yet.</td></tr>";
+                        }
+                    ?>
+
+        </table>
     </div>
+</div>
 
 <?php include('partials/footer.php'); ?>

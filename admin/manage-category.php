@@ -94,8 +94,7 @@
                                     <td><?php echo $active; ?></td>
                                     <td>
                                         <a href="<?php echo SITEURL; ?>admin/update-category.php?id=<?php echo $id; ?>" class="btn-secondary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                        <a href="<?php echo SITEURL; ?>admin/delete-category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger"><i
-                            class="fa fa-trash" aria-hidden="true"></i></a>
+                                        <a href="<?php echo SITEURL; ?>admin/delete-category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                     </td>
                                 </tr>
                                 <?php
