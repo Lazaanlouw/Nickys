@@ -23,7 +23,7 @@
                 //check whether we have data or not
                 if ($count == 1) {
                     //Get Details
-                    // echo "Admin is available";
+                    // echo "Category is available";
                     $row = mysqli_fetch_assoc($res);
 
                     $title = $row['title'];
@@ -32,7 +32,7 @@
                     $active = $row['active'];
                 } else {
                     $_SESSION['no-category-found'] = "<div class='error'>Category is not found.</div>";
-                    //Redirect to Manage Admin
+                    //Redirect to Manage Category
                     header('location:' . SITEURL . 'admin/manage-category.php');
                 }
             }
@@ -170,7 +170,7 @@
                     $image_name = $current_image;
                 }
 
-                //create a sql query to update admin
+                //create a sql query to update category
                 $sql2 = "UPDATE tbl_category SET
                         title = '$title',
                         image_name = '$image_name',
@@ -186,12 +186,12 @@
                 if ($res2 == TRUE) {
                     //Query Executed
                     $_SESSION['update'] = "<div class='success'>Category is updated Successfully</div>";
-                    //Redirect to manage Admin Page
+                    //Redirect to manage category Page
                     header('location:' . SITEURL . 'admin/manage-category.php');
                 } else {
-                    //Failed to update admin
+                    //Failed to update category
                     $_SESSION['update'] = "<div class='error'>Failed to update Category</div>";
-                    //Redirect to manage Admin Page
+                    //Redirect to manage category Page
                     header('location:' . SITEURL . 'admin/manage-category.php');
                 }
             }

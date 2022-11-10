@@ -70,7 +70,7 @@
 
                     //Execute the query
 
-                    $res2 = mysqli_query($conn, $sql);
+                    $res2 = mysqli_query($conn, $sql2);
                     
                     if($res2==TRUE){
                         //Display Success Message
