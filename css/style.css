@@ -257,3 +257,13 @@ fieldset{
         width: 100%;
     }
 }
+
+.success {
+    color: #2ed573;
+    padding: 2px;
+}
+
+.error {
+    padding: 2px;
+    color: #ff4757;
+}

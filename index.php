@@ -1,6 +1,8 @@
  <?php include('partials-front/menu.php'); ?>
     <!-- Navbar Section Ends Here -->
 
+
+
     <!-- fOOD sEARCH Section Starts Here -->
     <section class="food-search text-center">
         <div class="container">
@@ -13,7 +15,12 @@
         </div>
     </section>
     <!-- fOOD sEARCH Section Ends Here -->
-
+    <?php
+    if(isset($_SESSION['order'])){
+        echo $_SESSION['order'];
+        unset ($_SESSION['order']);
+    }
+    ?>
     <!-- CAtegories Section Starts Here -->
     <section class="categories">
         <div class="container">
@@ -119,7 +126,7 @@
                                                     </p>
                                                     <br>
 
-                                                    <a href="order.html" class="btn btn-primary">Order Now</a>
+                                                    <a href="<?php echo SITEURL;?>order.php?food_id=<?php echo $id;?>" class="btn btn-primary">Order Now</a>
                                                 </div>
                                             </div>
 
@@ -137,7 +144,7 @@
         </div>
 
         <p class="text-center">
-            <a href="#">See All Foods</a>
+            <a href="<?php echo SITEURL;?>foods.php">See All Foods</a>
         </p>
     </section>
     <!-- fOOD Menu Section Ends Here -->

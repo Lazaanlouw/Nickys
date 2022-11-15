@@ -42,7 +42,7 @@
 
 table tr th {
     border: 1px solid black;
-    padding: 2%;
+    padding: 2% 0;
     text-align: left;
     background-color: #222f3e;
     color: #ffffff;
