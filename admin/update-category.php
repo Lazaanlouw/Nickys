@@ -110,7 +110,7 @@
                 //echo "Button clicked";
                 //Get all the values from the form to update
                 $id = $_POST['id'];
-                $title = $_POST['title'];
+                $title =  $_POST['title'];
                 $current_image = $_POST['current_image'];
                 $feature = $_POST['feature'];
                 $active = $_POST['active'];
