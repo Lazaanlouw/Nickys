@@ -112,10 +112,10 @@
                 // echo "Button Clicked";
                 //1. Get data from form
 
-                    $title = $_POST['title'];
-                    $description = $_POST['description'];
-                    $price = $_POST['price'];
-                    $category = $_POST['category'];
+                    $title = mysqli_real_escape_string($conn, $_POST['title']);
+                    $description = mysqli_real_escape_string($conn, $_POST['description']);
+                    $price = mysqli_real_escape_string($conn, $_POST['price']);
+                    $category = mysqli_real_escape_string($conn, $_POST['category']) ;
                 
                 //check if radio button for active and featured are checked
                     if(isset($_POST['feature'])){

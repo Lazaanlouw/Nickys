@@ -8,7 +8,9 @@
 
 
                 //Get the input of the search bar
-                $search = $_POST['search'];
+                $search =  $_POST['search'];
+                $search = mysqli_real_escape_string($conn ,$_POST['search']);
+
 
             ?>
             

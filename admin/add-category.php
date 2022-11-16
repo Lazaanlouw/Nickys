@@ -73,7 +73,7 @@
         // echo "Button Clicked";
 
         //1. Get the value from the form
-        $title = $_POST['title'];
+        $title = mysqli_real_escape_string($conn, $_POST['title']);
 
         // for radio input, we need to check if user selected any of the options
         if(isset($_POST['feature'])){
